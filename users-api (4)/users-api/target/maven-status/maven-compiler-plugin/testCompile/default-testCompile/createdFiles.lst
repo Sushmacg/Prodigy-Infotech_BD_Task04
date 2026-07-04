@@ -1,3 +1,2 @@
 com\example\usersapi\UsersApiApplicationTests.class
-com\example\usersapi\RedisCacheFallbackTests.class
 com\example\usersapi\AuthFlowTests.class

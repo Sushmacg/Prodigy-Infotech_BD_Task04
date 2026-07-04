@@ -2,14 +2,13 @@ package com.example.usersapi.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -70,33 +69,6 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         // Public endpoints
                         .requestMatchers("/api/auth/**").permitAll()
-
-                        // Public hotel browsing (GET endpoints)
-                    .requestMatchers(HttpMethod.GET, "/api/hotels").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/api/hotels/{id}").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/api/hotels/city/**").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/api/hotels/country/**").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/api/hotels/owner/**").permitAll()
-
-                        // Public room browsing (GET endpoints)
-                    .requestMatchers(HttpMethod.GET, "/api/rooms/{id}").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/api/rooms/hotel/**").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/api/rooms/search").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/api/bookings/availability/check").permitAll()
-
-                        // Hotel management (create, edit, delete require auth)
-                    .requestMatchers(HttpMethod.POST, "/api/hotels").authenticated()
-                    .requestMatchers(HttpMethod.PUT, "/api/hotels/**").authenticated()
-                    .requestMatchers(HttpMethod.DELETE, "/api/hotels/**").authenticated()
-                    .requestMatchers(HttpMethod.GET, "/api/hotels/my-hotels").authenticated()
-
-                        // Room management (create, edit, delete require auth)
-                    .requestMatchers(HttpMethod.POST, "/api/rooms").authenticated()
-                    .requestMatchers(HttpMethod.PUT, "/api/rooms/**").authenticated()
-                    .requestMatchers(HttpMethod.DELETE, "/api/rooms/**").authenticated()
-
-                        // Booking endpoints (require auth)
-                        .requestMatchers("/api/bookings/**").authenticated()
 
                         // Admin-only user management
                         .requestMatchers("/api/users/**").hasRole("ADMIN")
