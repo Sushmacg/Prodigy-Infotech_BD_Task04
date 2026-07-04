@@ -1,0 +1,89 @@
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.0)
+
+2026-07-03T16:41:31.059+05:30  INFO 33332 --- [users-api] [           main] c.example.usersapi.UsersApiApplication   : Starting UsersApiApplication v1.0.0 using Java 17.0.15 with PID 33332 (C:\Users\saisr\Projects\ProdigyInfotech_BD_Task03\users-api (4)\users-api\target\users-api-1.0.0.jar started by saisr in C:\Users\saisr\Projects\ProdigyInfotech_BD_Task03\users-api (4)\users-api)
+2026-07-03T16:41:31.063+05:30  INFO 33332 --- [users-api] [           main] c.example.usersapi.UsersApiApplication   : The following 1 profile is active: "test"
+2026-07-03T16:41:31.148+05:30 DEBUG 33332 --- [users-api] [           main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@54eb2b70
+2026-07-03T16:41:32.098+05:30  INFO 33332 --- [users-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-03T16:41:32.157+05:30  INFO 33332 --- [users-api] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 1 JPA repository interface.
+2026-07-03T16:41:33.106+05:30 DEBUG 33332 --- [users-api] [           main] .s.b.w.e.t.TomcatServletWebServerFactory : Code archive: C:\Users\saisr\Projects\ProdigyInfotech_BD_Task03\users-api (4)\users-api\target\users-api-1.0.0.jar
+2026-07-03T16:41:33.107+05:30 DEBUG 33332 --- [users-api] [           main] .s.b.w.e.t.TomcatServletWebServerFactory : Code archive: C:\Users\saisr\Projects\ProdigyInfotech_BD_Task03\users-api (4)\users-api\target\users-api-1.0.0.jar
+2026-07-03T16:41:33.109+05:30 DEBUG 33332 --- [users-api] [           main] .s.b.w.e.t.TomcatServletWebServerFactory : None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
+2026-07-03T16:41:33.166+05:30  INFO 33332 --- [users-api] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+2026-07-03T16:41:33.198+05:30  INFO 33332 --- [users-api] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-07-03T16:41:33.200+05:30  INFO 33332 --- [users-api] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2026-07-03T16:41:33.273+05:30  INFO 33332 --- [users-api] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-07-03T16:41:33.275+05:30 DEBUG 33332 --- [users-api] [           main] w.s.c.ServletWebServerApplicationContext : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2026-07-03T16:41:33.277+05:30  INFO 33332 --- [users-api] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2129 ms
+2026-07-03T16:41:33.595+05:30  INFO 33332 --- [users-api] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-03T16:41:33.774+05:30  INFO 33332 --- [users-api] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-07-03T16:41:33.897+05:30  INFO 33332 --- [users-api] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-07-03T16:41:34.385+05:30  INFO 33332 --- [users-api] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-03T16:41:34.449+05:30  INFO 33332 --- [users-api] [           main] com.zaxxer.hikari.HikariDataSource       : UsersApiHikariPool - Starting...
+2026-07-03T16:41:34.687+05:30  INFO 33332 --- [users-api] [           main] com.zaxxer.hikari.pool.HikariPool        : UsersApiHikariPool - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-07-03T16:41:34.700+05:30  INFO 33332 --- [users-api] [           main] com.zaxxer.hikari.HikariDataSource       : UsersApiHikariPool - Start completed.
+2026-07-03T16:41:35.446+05:30  INFO 33332 --- [users-api] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-03T16:41:35.493+05:30  INFO 33332 --- [users-api] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-03T16:41:36.178+05:30 DEBUG 33332 --- [users-api] [           main] o.s.b.w.s.ServletContextInitializerBeans : Mapping filters: springSecurityFilterChain urls=[/*] order=-100, characterEncodingFilter urls=[/*] order=-2147483648, formContentFilter urls=[/*] order=-9900, requestContextFilter urls=[/*] order=-105, jwtAuthenticationFilter urls=[/*] order=2147483647
+2026-07-03T16:41:36.180+05:30 DEBUG 33332 --- [users-api] [           main] o.s.b.w.s.ServletContextInitializerBeans : Mapping servlets: dispatcherServlet urls=[/]
+2026-07-03T16:41:36.252+05:30 DEBUG 33332 --- [users-api] [           main] o.s.b.w.s.f.OrderedRequestContextFilter  : Filter 'requestContextFilter' configured for use
+2026-07-03T16:41:36.286+05:30 DEBUG 33332 --- [users-api] [           main] s.b.w.s.f.OrderedCharacterEncodingFilter : Filter 'characterEncodingFilter' configured for use
+2026-07-03T16:41:36.287+05:30 DEBUG 33332 --- [users-api] [           main] .DelegatingFilterProxyRegistrationBean$1 : Filter 'springSecurityFilterChain' configured for use
+2026-07-03T16:41:36.287+05:30 DEBUG 33332 --- [users-api] [           main] o.s.b.w.s.f.OrderedFormContentFilter     : Filter 'formContentFilter' configured for use
+2026-07-03T16:41:36.494+05:30  INFO 33332 --- [users-api] [           main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-07-03T16:41:36.497+05:30  WARN 33332 --- [users-api] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2026-07-03T16:41:37.001+05:30 DEBUG 33332 --- [users-api] [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 11 mappings in 'requestMappingHandlerMapping'
+2026-07-03T16:41:37.113+05:30 DEBUG 33332 --- [users-api] [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-07-03T16:41:37.191+05:30  INFO 33332 --- [users-api] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@c5e7696, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4f579582, org.springframework.security.web.context.SecurityContextHolderFilter@4fae4c3b, org.springframework.security.web.header.HeaderWriterFilter@4fe3199d, org.springframework.web.filter.CorsFilter@4769e70c, org.springframework.security.web.authentication.logout.LogoutFilter@26bbbe9e, com.example.usersapi.security.JwtAuthenticationFilter@16f15a4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4cddc3d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@28532753, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@69346100, org.springframework.security.web.session.SessionManagementFilter@20e9b10b, org.springframework.security.web.access.ExceptionTranslationFilter@22e253c7, org.springframework.security.web.access.intercept.AuthorizationFilter@1f4b8027]
+2026-07-03T16:41:37.386+05:30 DEBUG 33332 --- [users-api] [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-07-03T16:41:37.428+05:30 DEBUG 33332 --- [users-api] [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-07-03T16:41:37.678+05:30  INFO 33332 --- [users-api] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8085 (http) with context path '/'
+2026-07-03T16:41:37.699+05:30  INFO 33332 --- [users-api] [           main] c.example.usersapi.UsersApiApplication   : Started UsersApiApplication in 7.127 seconds (process running for 7.655)
+2026-07-03T16:41:37.964+05:30  INFO 33332 --- [users-api] [           main] c.example.usersapi.config.AdminSeeder    : Seeded initial admin account with email 'admin@example.com'.
+2026-07-03T16:42:01.289+05:30  INFO 33332 --- [users-api] [nio-8085-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-03T16:42:01.291+05:30  INFO 33332 --- [users-api] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-07-03T16:42:01.291+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-07-03T16:42:01.291+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-07-03T16:42:01.291+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2026-07-03T16:42:01.292+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@46e38c28
+2026-07-03T16:42:01.293+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@2e8eafb2
+2026-07-03T16:42:01.293+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-07-03T16:42:01.293+05:30  INFO 33332 --- [users-api] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-07-03T16:42:01.315+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/auth/login", parameters={}
+2026-07-03T16:42:01.317+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.usersapi.controller.AuthController#login(LoginRequest)
+2026-07-03T16:42:01.377+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.example.usersapi.dto.LoginRequest@79f323b3]
+2026-07-03T16:42:01.640+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-07-03T16:42:01.641+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.example.usersapi.dto.AuthResponse@42113cce]
+2026-07-03T16:42:01.649+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-07-03T16:42:01.689+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/users", parameters={}
+2026-07-03T16:42:01.689+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.usersapi.controller.UserController#createUser(UserCreateRequest)
+2026-07-03T16:42:01.694+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.example.usersapi.dto.UserCreateRequest@15b3e743]
+2026-07-03T16:42:01.783+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-07-03T16:42:01.784+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.example.usersapi.dto.UserResponse@3288b870]
+2026-07-03T16:42:01.785+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2026-07-03T16:42:01.792+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-3] o.s.web.servlet.DispatcherServlet        : PUT "/api/users/bdd3e0a5-6784-4bdb-a7b9-f7beb9558aae", parameters={}
+2026-07-03T16:42:01.792+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.usersapi.controller.UserController#updateUser(UUID, UserUpdateRequest)
+2026-07-03T16:42:01.797+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-3] o.s.web.method.HandlerMethod             : Could not resolve parameter [1] in public org.springframework.http.ResponseEntity<com.example.usersapi.dto.UserResponse> com.example.usersapi.controller.UserController.updateUser(java.util.UUID,com.example.usersapi.dto.UserUpdateRequest): JSON parse error: Unrecognized field "role" (class com.example.usersapi.dto.UserUpdateRequest), not marked as ignorable
+2026-07-03T16:42:01.799+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.example.usersapi.exception.GlobalExceptionHandler#handleUnreadable(HttpMessageNotReadableException)
+2026-07-03T16:42:01.802+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-07-03T16:42:01.802+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.example.usersapi.exception.ErrorResponse@124f9e9a]
+2026-07-03T16:42:01.804+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized field "role" (class com.example.usersapi.dto.UserUpdateRequest), not marked as ignorable]
+2026-07-03T16:42:01.804+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2026-07-03T16:44:33.360+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/api/auth/login", parameters={}
+2026-07-03T16:44:33.362+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.usersapi.controller.AuthController#login(LoginRequest)
+2026-07-03T16:44:33.363+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.example.usersapi.dto.LoginRequest@41171b2e]
+2026-07-03T16:44:33.423+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-07-03T16:44:33.424+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.example.usersapi.dto.AuthResponse@3ade92c]
+2026-07-03T16:44:33.425+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-07-03T16:44:33.430+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-8] o.s.web.servlet.DispatcherServlet        : PUT "/api/profile", parameters={}
+2026-07-03T16:44:33.430+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.usersapi.controller.ProfileController#updateOwnProfile(User, UserUpdateRequest)
+2026-07-03T16:44:33.433+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.example.usersapi.dto.UserUpdateRequest@516e561a]
+2026-07-03T16:44:33.445+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-07-03T16:44:33.446+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.example.usersapi.dto.UserResponse@1e587c87]
+2026-07-03T16:44:33.447+05:30 DEBUG 33332 --- [users-api] [nio-8085-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
