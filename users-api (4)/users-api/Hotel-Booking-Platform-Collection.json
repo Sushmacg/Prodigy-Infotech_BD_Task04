@@ -1,0 +1,732 @@
+{
+  "info": {
+    "_postman_id": "hotel-booking-api-collection-001",
+    "name": "Hotel Booking Platform - Complete API",
+    "description": "Complete API collection for Hotel Booking Platform with Hotels, Rooms, and Bookings",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "created": "2026-07-04T15:30:00Z",
+    "updated": "2026-07-04T15:30:00Z"
+  },
+  "item": [
+    {
+      "name": "1. AUTHENTICATION",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"age\": 30,\n  \"password\": \"SecurePass123!\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/auth/register",
+              "host": ["{{BASE_URL}}"],
+              "path": ["auth", "register"]
+            },
+            "description": "Register a new user and get JWT token"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "pm.environment.set(\"TOKEN\", jsonData.token);",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Has token\", function () {",
+                  "    pm.expect(jsonData.token).to.exist;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"SecurePass123!\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/auth/login",
+              "host": ["{{BASE_URL}}"],
+              "path": ["auth", "login"]
+            },
+            "description": "Login existing user and get JWT token"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "pm.environment.set(\"TOKEN\", jsonData.token);",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2. HOTELS",
+      "item": [
+        {
+          "name": "Create Hotel",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Grand Plaza Hotel\",\n  \"city\": \"New York\",\n  \"country\": \"USA\",\n  \"address\": \"123 Main Street, NY\",\n  \"description\": \"Luxury 5-star hotel in Manhattan\",\n  \"email\": \"info@grandplaza.com\",\n  \"phone\": \"+1-555-0100\",\n  \"starRating\": 5.0\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/hotels",
+              "host": ["{{BASE_URL}}"],
+              "path": ["hotels"]
+            },
+            "description": "Create a new hotel (requires authentication)"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "pm.environment.set(\"HOTEL_ID\", jsonData.id);",
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"Hotel created\", function () {",
+                  "    pm.expect(jsonData.id).to.exist;",
+                  "    pm.expect(jsonData.name).to.equal(\"Grand Plaza Hotel\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get All Hotels",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/hotels",
+              "host": ["{{BASE_URL}}"],
+              "path": ["hotels"]
+            },
+            "description": "Get all hotels (public endpoint)"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Hotel By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/hotels/{{HOTEL_ID}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["hotels", "{{HOTEL_ID}}"]
+            },
+            "description": "Get specific hotel by ID (public endpoint)"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Search Hotels by City",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/hotels/city/New%20York",
+              "host": ["{{BASE_URL}}"],
+              "path": ["hotels", "city", "New York"]
+            },
+            "description": "Search hotels by city (public endpoint)"
+          },
+          "response": []
+        },
+        {
+          "name": "Search Hotels by Country",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/hotels/country/USA",
+              "host": ["{{BASE_URL}}"],
+              "path": ["hotels", "country", "USA"]
+            },
+            "description": "Search hotels by country (public endpoint)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Hotels",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/hotels/my-hotels",
+              "host": ["{{BASE_URL}}"],
+              "path": ["hotels", "my-hotels"]
+            },
+            "description": "Get hotels owned by current user (requires authentication)"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Hotel",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Grand Plaza Hotel - Deluxe\",\n  \"starRating\": 4.5\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/hotels/{{HOTEL_ID}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["hotels", "{{HOTEL_ID}}"]
+            },
+            "description": "Update hotel details (owner/admin only)"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Delete Hotel",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/hotels/{{HOTEL_ID}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["hotels", "{{HOTEL_ID}}"]
+            },
+            "description": "Delete a hotel (owner/admin only)"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3. ROOMS",
+      "item": [
+        {
+          "name": "Create Room",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hotelId\": \"{{HOTEL_ID}}\",\n  \"roomNumber\": \"101\",\n  \"roomType\": \"DOUBLE\",\n  \"capacity\": 2,\n  \"basePrice\": 150.00,\n  \"description\": \"Spacious double room with city view\",\n  \"amenities\": \"WiFi,AC,TV,Minibar,Safe\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/rooms",
+              "host": ["{{BASE_URL}}"],
+              "path": ["rooms"]
+            },
+            "description": "Create a new room (requires authentication & hotel ownership)"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "pm.environment.set(\"ROOM_ID\", jsonData.id);",
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"Room created\", function () {",
+                  "    pm.expect(jsonData.id).to.exist;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Room By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/rooms/{{ROOM_ID}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["rooms", "{{ROOM_ID}}"]
+            },
+            "description": "Get specific room by ID (public endpoint)"
+          },
+          "response": []
+        },
+        {
+          "name": "List Rooms by Hotel",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/rooms/hotel/{{HOTEL_ID}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["rooms", "hotel", "{{HOTEL_ID}}"]
+            },
+            "description": "Get all rooms in a hotel (public endpoint)"
+          },
+          "response": []
+        },
+        {
+          "name": "Search Available Rooms",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/rooms/search?hotelId={{HOTEL_ID}}&checkInDate=2026-07-10&checkOutDate=2026-07-15&capacity=2&maxPrice=200",
+              "host": ["{{BASE_URL}}"],
+              "path": ["rooms", "search"],
+              "query": [
+                {
+                  "key": "hotelId",
+                  "value": "{{HOTEL_ID}}"
+                },
+                {
+                  "key": "checkInDate",
+                  "value": "2026-07-10"
+                },
+                {
+                  "key": "checkOutDate",
+                  "value": "2026-07-15"
+                },
+                {
+                  "key": "capacity",
+                  "value": "2"
+                },
+                {
+                  "key": "maxPrice",
+                  "value": "200"
+                }
+              ]
+            },
+            "description": "Search available rooms by dates, capacity, and price (public endpoint)"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Room",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roomNumber\": \"101\",\n  \"roomType\": \"DOUBLE\",\n  \"capacity\": 2,\n  \"basePrice\": 175.00,\n  \"description\": \"Updated description\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/rooms/{{ROOM_ID}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["rooms", "{{ROOM_ID}}"]
+            },
+            "description": "Update room details (owner/admin only)"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Room",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/rooms/{{ROOM_ID}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["rooms", "{{ROOM_ID}}"]
+            },
+            "description": "Delete a room (owner/admin only)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "4. BOOKINGS",
+      "item": [
+        {
+          "name": "Create Booking",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roomId\": \"{{ROOM_ID}}\",\n  \"checkInDate\": \"2026-07-10\",\n  \"checkOutDate\": \"2026-07-15\",\n  \"numberOfGuests\": 2,\n  \"specialRequests\": \"Late checkout preferred\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/bookings",
+              "host": ["{{BASE_URL}}"],
+              "path": ["bookings"]
+            },
+            "description": "Create a new booking (requires authentication)"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "pm.environment.set(\"BOOKING_ID\", jsonData.id);",
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "pm.test(\"Booking created\", function () {",
+                  "    pm.expect(jsonData.id).to.exist;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Booking By ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/bookings/{{BOOKING_ID}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["bookings", "{{BOOKING_ID}}"]
+            },
+            "description": "Get specific booking by ID (requires authentication)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Bookings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/bookings/my-bookings",
+              "host": ["{{BASE_URL}}"],
+              "path": ["bookings", "my-bookings"]
+            },
+            "description": "Get all bookings for current user (requires authentication)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Hotel Bookings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/bookings/hotel/{{HOTEL_ID}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["bookings", "hotel", "{{HOTEL_ID}}"]
+            },
+            "description": "Get all bookings for a hotel (requires authentication)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Room Bookings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/bookings/room/{{ROOM_ID}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["bookings", "room", "{{ROOM_ID}}"]
+            },
+            "description": "Get all bookings for a room (requires authentication)"
+          },
+          "response": []
+        },
+        {
+          "name": "Check Room Availability",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/bookings/availability/check?roomId={{ROOM_ID}}&checkInDate=2026-07-20&checkOutDate=2026-07-25",
+              "host": ["{{BASE_URL}}"],
+              "path": ["bookings", "availability", "check"],
+              "query": [
+                {
+                  "key": "roomId",
+                  "value": "{{ROOM_ID}}"
+                },
+                {
+                  "key": "checkInDate",
+                  "value": "2026-07-20"
+                },
+                {
+                  "key": "checkOutDate",
+                  "value": "2026-07-25"
+                }
+              ]
+            },
+            "description": "Check if room is available for given dates (public endpoint)"
+          },
+          "response": []
+        },
+        {
+          "name": "Cancel Booking",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{TOKEN}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/bookings/{{BOOKING_ID}}/cancel",
+              "host": ["{{BASE_URL}}"],
+              "path": ["bookings", "{{BOOKING_ID}}", "cancel"]
+            },
+            "description": "Cancel a booking (owner/admin only)"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Booking cancelled\", function () {",
+                  "    pm.expect(jsonData.status).to.equal(\"CANCELLED\");",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "http://localhost:8014/api",
+      "type": "string"
+    },
+    {
+      "key": "TOKEN",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "HOTEL_ID",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "ROOM_ID",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "BOOKING_ID",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

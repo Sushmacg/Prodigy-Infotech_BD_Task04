@@ -1,0 +1,7 @@
+{
+  "method": "GET",
+  "url": "http://localhost:8014/api/bookings/{{BOOKING_ID}}",
+  "headers": {
+    "Authorization": "Bearer {{TOKEN}}"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "method": "PUT",
+  "url": "http://localhost:8014/api/bookings/{{BOOKING_ID}}/cancel",
+  "headers": {
+    "Authorization": "Bearer {{TOKEN}}",
+    "Content-Type": "application/json"
+  },
+  "body": {}
+}

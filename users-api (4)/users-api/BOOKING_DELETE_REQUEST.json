@@ -1,0 +1,11 @@
+{
+  "supported": false,
+  "reason": "The current BookingController does not expose a DELETE endpoint.",
+  "alternativeMethod": "PUT",
+  "alternativeUrl": "http://localhost:8014/api/bookings/{{BOOKING_ID}}/cancel",
+  "headers": {
+    "Authorization": "Bearer {{TOKEN}}",
+    "Content-Type": "application/json"
+  },
+  "body": {}
+}
